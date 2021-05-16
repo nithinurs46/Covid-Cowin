@@ -2,6 +2,8 @@
 
 URL : https://dashboard-cafa0.web.app/dashboard
 
+Application create with angular to track the covid cases in India and search for the vaccine slots.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.12.
 
 ## Development server
