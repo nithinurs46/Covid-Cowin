@@ -1,0 +1,36 @@
+<mat-card>
+  <button class="btn btn-primary mb-2" routerLink="/vaccineFinder">Back</button>
+  <div *ngIf="centers.length>0; else elseBlock" class="table-responsive-sm fixTableHead">
+    <table class="table  table-sm">
+      <thead>
+        <tr>
+          <th>Hospital Name</th>
+          <th scope="col" *ngFor="let column of resultHeader">
+            {{column}}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of centers" (mouseover)="highlightRow(c)" [ngClass]="{'highlight' : c.name == selectedName}">
+          <td>{{c.name}} <br>
+            Pin: {{c.pincode}} <br>
+            {{c.fee_type}}
+            <p *ngFor="let v of c.vaccine_fees">
+              {{v.vaccine}} - {{v.fee}} Rs
+            </p>
+          </td>
+          <td *ngFor="let s of c.sessions">
+            {{s.vaccine}}
+            <br>
+            Free slots: {{s.available_capacity}}<br>
+            Min Age: {{s.min_age_limit}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #elseBlock>
+    <br>
+    <h4>No slots available</h4>
+  </ng-template>
+</mat-card>

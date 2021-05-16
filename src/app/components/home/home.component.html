@@ -1,0 +1,48 @@
+
+  <div class="containerNew">
+    <div class="row">
+      <div class="col">
+        <mat-accordion multi="true">
+          <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <h4>Summary of cases in India</h4>
+                </mat-panel-title>
+                <mat-panel-description>
+                  <h5>Data last updated at: {{lastOriginUpdated}}</h5>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <app-summary></app-summary>
+              <br><br>
+                
+            </mat-expansion-panel>
+            </mat-accordion>
+      </div>
+    </div>
+   
+    <br>
+    <div class="row">
+      <div class="col">
+        <mat-accordion multi="true">
+          <mat-expansion-panel [expanded]="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <h4><b>State wise data</b></h4>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <app-state-wise></app-state-wise>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div class="col">
+        <mat-card>
+          <app-line-chart [data]="positiveCaseData" [chartTitle]="titleDaily" [labelXAxis]="labelDaily"></app-line-chart>
+          </mat-card><br>
+          <mat-card>
+          <app-line-chart [data]="deathData" [chartTitle]="titleDeath" [labelXAxis]="labelDeath"></app-line-chart>
+          </mat-card>
+      </div>
+      
+    </div>
+  </div>
+  

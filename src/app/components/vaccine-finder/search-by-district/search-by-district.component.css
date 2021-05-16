@@ -1,0 +1,13 @@
+.containerNew{
+    padding: 10px;
+    width: 100%;
+}
+.row{
+    margin-left: -5px;
+    margin-right: -6px;
+}
+
+.error{
+    color: red;
+    margin-left: 15px;
+}

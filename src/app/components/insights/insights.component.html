@@ -1,0 +1,61 @@
+<div class="containerNew">
+    <div class="row">
+        <div class="col">
+            <mat-accordion multi="true">
+                <mat-expansion-panel [expanded]="true">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <h4><b>State wise Cases</b></h4>
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <app-bar-chart [data]="stateWiseCases" [seriesName]="seriesNameCases" [xAxisNames]="stateNames">
+                </app-bar-chart>
+                </mat-expansion-panel>
+              </mat-accordion>
+            
+        </div>
+        <div class="col">
+            <mat-accordion multi="true">
+                <mat-expansion-panel [expanded]="true">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <h4><b>State wise Deaths</b></h4>
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <app-bar-chart [data]="stateWiseDeath" [seriesName]="seriesNameDeaths" [xAxisNames]="stateNames">
+                </app-bar-chart>
+                </mat-expansion-panel>
+              </mat-accordion>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+            <mat-accordion multi="true">
+                <mat-expansion-panel [expanded]="true">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <h4><b>Cases Timeline</b></h4>
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <app-line-chart [data]="positiveCaseData" [chartTitle]="titleDaily" [labelXAxis]="labelDaily">
+                </app-line-chart>
+                </mat-expansion-panel>
+              </mat-accordion>
+
+        </div>
+        <div class="col">
+            <mat-accordion multi="true">
+                <mat-expansion-panel [expanded]="true">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <h4><b>Deaths Timeline</b></h4>
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <app-line-chart [data]="deathData" [chartTitle]="titleDeath" [labelXAxis]="labelDeath">
+                </app-line-chart>
+                </mat-expansion-panel>
+              </mat-accordion>
+        </div>
+    </div>
+</div>

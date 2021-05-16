@@ -1,0 +1,13 @@
+.card{
+    width: 200px;
+}
+.card-header{
+    padding: 0cm;
+}
+.card-body{
+    padding: 0.3cm;
+}
+.col{
+    padding-left: 2px;
+    padding-right: 2px;
+}

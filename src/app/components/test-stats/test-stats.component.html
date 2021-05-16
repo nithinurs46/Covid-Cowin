@@ -1,0 +1,25 @@
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                  <p class="font-weight-bold text-center">
+                    Samples tested from {{testStartDate}} - {{dateLastTested}}</p>
+                </div>
+                <div class="card-body">
+                  <blockquote class="blockquote mb-0 text-center">
+                    {{totalTested | number}}
+                  </blockquote>
+                </div>
+              </div>
+         </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                  <p class="font-weight-bold text-center">Samples tested on {{dateLastTested}}</p>
+                </div>
+                <div class="card-body">
+                  <blockquote class="blockquote mb-0 text-center">
+                    {{singleDayTestingCount | number}}
+                  </blockquote>
+                </div>
+              </div>
+         </div>

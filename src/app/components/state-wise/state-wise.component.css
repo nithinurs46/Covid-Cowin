@@ -1,0 +1,24 @@
+table {
+  width: 100%;
+}
+th, td {
+  overflow: hidden;
+  width: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mat-row:nth-child(even){
+  background-color: rgba(255, 0, 0, 0);
+}
+      
+.mat-row:nth-child(odd){
+  background-color: #faf9f9;
+}
+
+.mat-header-row, .mat-row {
+  height: 25px;
+}
+.stateTable{
+  width: 50%;
+}

@@ -1,0 +1,77 @@
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+              <p class="font-weight-bold text-center">Total Cases</p>
+            </div>
+            <div class="card-body">
+              <blockquote class="blockquote mb-0 text-center">
+                {{summaryStats.total | number}}
+              </blockquote>
+            </div>
+          </div>
+     </div>
+     <div class="col">
+        <div class="card">
+            <div class="card-header">
+              <p class="font-weight-bold text-center">Confirmed Cases</p>
+            </div>
+            <div class="card-body">
+              <blockquote class="blockquote mb-0 text-center">
+                {{summaryStats.confirmedCasesIndian + summaryStats.confirmedCasesForeign| number}}
+              </blockquote>
+            </div>
+          </div>
+     </div>
+     <div class="col">
+        <div class="card">
+            <div class="card-header">
+              <p class="font-weight-bold text-center">Discharged</p>
+            </div>
+            <div class="card-body">
+              <blockquote class="blockquote mb-0 text-center">
+                {{summaryStats.discharged | number}}
+              </blockquote>
+            </div>
+          </div>
+     </div>
+     <div class="col">
+        <div class="card">
+            <div class="card-header">
+              <p class="font-weight-bold text-center">Deaths</p>
+            </div>
+            <div class="card-body">
+              <blockquote class="blockquote mb-0 text-center">
+                {{summaryStats.deaths | number}}
+              </blockquote>
+            </div>
+          </div>
+     </div>
+     <div class="col">
+      <div class="card">
+          <div class="card-header">
+            <p class="font-weight-bold text-center">
+              Samples tested till date</p>
+          </div>
+          <div class="card-body">
+            <blockquote class="blockquote mb-0 text-center">
+              {{totalTested | number}}
+            </blockquote>
+          </div>
+        </div>
+   </div>
+  <div class="col">
+      <div class="card">
+          <div class="card-header">
+            <p class="font-weight-bold text-center">Samples tested on {{dateLastTested | date:'dd/MM/yy'}}</p>
+          </div>
+          <div class="card-body">
+            <blockquote class="blockquote mb-0 text-center">
+              {{singleDayTestingCount | number}}
+            </blockquote>
+          </div>
+        </div>
+   </div>
+     
+</div>        
+

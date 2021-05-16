@@ -1,0 +1,33 @@
+<div class="containerNew">
+    <form  [formGroup]="districtSearchForm" (ngSubmit)="findCenters()">
+        <div class="row">
+          <div class="col">
+            <label for="inputState">State</label>
+            <select formControlName="state" id="inputState" class="form-control" (change)="fetchCities($event)">
+                <option value="">Select State</option>
+                <option *ngFor="let i of states" [value]="i.state_id">{{i.state_name}}</option>
+              </select>
+              <mat-error *ngIf="submitted && f.state.errors" >
+                <p>Please select a state</p>
+            </mat-error>
+          </div>
+          <div class="col">
+            <label  for="inputCity">City</label>
+            <select formControlName="city" id="inputCity" class="form-control">
+                <option value="">Select City</option>
+                <option *ngFor="let c of cities" [value]="c.district_id">{{c.district_name}}</option>
+              </select>
+            <mat-error *ngIf="submitted && f.city.errors" >
+              <p>Please select a city</p>
+          </mat-error>
+          </div>
+          <div class="col">
+              <br>
+            <button  [disabled]="loading" class="btn btn-primary mb-2" >Submit</button>
+          </div>
+        </div>
+      </form>
+      <div class="error">
+        {{error}}
+    </div>
+</div>

@@ -1,0 +1,28 @@
+.table td, .table th{
+    border-top:0cm
+}
+.fixTableHead {
+    overflow-y: auto;
+    height: 500px;
+  }
+  .fixTableHead thead th {
+    position: sticky;
+    top: 0;
+  }
+  table {
+    border-collapse: collapse;        
+    width: 100%;
+  }
+  th,
+  td {
+    padding: 8px 15px;
+    
+  }
+  th {
+    background: #f8f9fa!important;
+  }
+
+  table tr.highlight {
+    background-color: #007bff !important;
+    color: #ffffff;
+}
