@@ -20,9 +20,26 @@ export class VacccineApiService {
     return this.searchResult;
   }
 
-  findByPinCode(pincode:string) : Observable<any> {
-    let date = this.datePipe.transform(+new Date(), 'dd-MM-yyyy');
+  findByPinCode(pincode:string,formDate:any) : Observable<any> {
+    let date;
+    if(formDate === null || formDate === ''){
+      date = this.datePipe.transform(+new Date(), 'dd-MM-yyyy');
+    } else {
+      date = this.datePipe.transform(+formDate, 'dd-MM-yyyy');
+    }
+    
     let url = this.baseUrl + "/appointment/sessions/public/calendarByPin?pincode="+pincode+'&date='+date;
+    return this.http.get<any>(url);
+  }
+
+  findByCity(city:any,formDate:any): Observable<any>{
+    let date;
+    if(formDate === null || formDate === ''){
+      date = this.datePipe.transform(+new Date(), 'dd-MM-yyyy');
+    } else {
+      date = this.datePipe.transform(+formDate, 'dd-MM-yyyy');
+    }
+    let url = this.baseUrl + "/appointment/sessions/public/calendarByDistrict?district_id="+city+'&date='+date;
     return this.http.get<any>(url);
   }
 
@@ -36,11 +53,5 @@ export class VacccineApiService {
     return this.http.get<any>(url);
   }
 
-  findByCity(city:any): Observable<any>{
-    let date = this.datePipe.transform(+new Date(), 'dd-MM-yyyy');
-    let url = this.baseUrl + "/appointment/sessions/public/calendarByDistrict?district_id="+city+'&date='+date;
-    return this.http.get<any>(url);
-    
-    
-  }
+  
 }

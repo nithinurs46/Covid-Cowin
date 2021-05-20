@@ -1,5 +1,17 @@
 <mat-card>
-  <button class="btn btn-primary mb-2" routerLink="/vaccineFinder">Back</button>
+  <button class="btn btn-primary btn-sm" routerLink="/vaccineFinder">Back</button>
+  <br><br>
+  <div class="row">
+    <div class="col-md-auto" *ngFor="let v of vaccinesList">
+      <input type="checkbox" name="v" value="v"
+       (change)="filterByVaccine($event,v)"> {{v}}
+    </div>
+    <div class="col-md-auto"  *ngFor="let a of ageList">
+      <input type="checkbox" name="a" value="a"
+       (change)="filterByAge($event,a)"> {{a}}+
+    </div>
+  </div>
+  
   <div *ngIf="centers.length>0; else elseBlock" class="table-responsive-sm fixTableHead">
     <table class="table  table-sm">
       <thead>
@@ -11,7 +23,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let c of centers" (mouseover)="highlightRow(c)" [ngClass]="{'highlight' : c.name == selectedName}">
+        <tr *ngFor="let c of filteredCenters" (mouseover)="highlightRow(c)" [ngClass]="{'highlight' : c.name == selectedName}">
           <td>{{c.name}} <br>
             Pin: {{c.pincode}} <br>
             {{c.fee_type}}

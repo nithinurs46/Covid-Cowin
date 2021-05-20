@@ -22,6 +22,14 @@
           </mat-error>
           </div>
           <div class="col">
+            <mat-form-field>
+              <mat-label>Choose a start date</mat-label>
+              <input matInput [matDatepicker]="picker" [min]="minDate" formControlName="startDate">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="col">
               <br>
             <button  [disabled]="loading" class="btn btn-primary mb-2" >Submit</button>
           </div>

@@ -13,8 +13,10 @@ export class SearchByPinComponent implements OnInit {
   constructor(private vaccineSvc:VacccineApiService, private router: Router) { }
   pincode: string = "";
   searchByPinForm: FormControl = new FormControl('', Validators.minLength(6));
+  startDate:FormControl = new FormControl();
   disableBtn = false;
   error:any;
+  minDate = new Date();
   ngOnInit(): void {
     this.searchByPinForm.valueChanges
       .subscribe((changedObj: any) => {
@@ -24,9 +26,9 @@ export class SearchByPinComponent implements OnInit {
 
   searchByPin() {
     this.pincode = this.searchByPinForm.value
-    this.vaccineSvc.findByPinCode(this.pincode).subscribe((response:any) => {
+    this.vaccineSvc.findByPinCode(this.pincode,this.startDate.value).subscribe((response:any) => {
       this.vaccineSvc.setSearchResult(response);
-      this.router.navigate(['/vaccineSearchResult']);
+      this.router.navigate(['/vaccineSearchResult'], { queryParams: { startDate: this.startDate.value }});
     },fail => {
       this.error = fail.error.error;
     });

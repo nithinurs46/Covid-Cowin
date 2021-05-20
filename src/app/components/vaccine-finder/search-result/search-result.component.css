@@ -3,14 +3,14 @@
 }
 .fixTableHead {
     overflow-y: auto;
-    height: 500px;
+    height: 480px;
   }
   .fixTableHead thead th {
     position: sticky;
     top: 0;
   }
   table {
-    border-collapse: collapse;        
+    border-collapse: separate;        
     width: 100%;
   }
   th,
@@ -25,4 +25,17 @@
   table tr.highlight {
     background-color: #007bff !important;
     color: #ffffff;
+}
+
+.example-margin {
+  margin: 0 12px;
+}
+
+
+tr:nth-child(even){
+  background-color: #eee;
+}
+      
+tr:nth-child(odd){
+  background-color: #dacaca0e;
 }

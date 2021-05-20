@@ -52,7 +52,7 @@ import { SearchResultComponent } from './components/vaccine-finder/search-result
     MaterialModule,
     NgbModule,
     NgApexchartsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

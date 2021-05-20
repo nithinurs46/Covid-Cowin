@@ -5,6 +5,14 @@
         numbersOnly
         placeholder="Pincode" [formControl]="searchByPinForm" required>
     </div>
+    <div class="form-group mx-sm-3 mb-2">
+        <mat-form-field>
+            <mat-label>Choose a start date</mat-label>
+            <input matInput [matDatepicker]="picker" [min]="minDate" [formControl]="startDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+    </div>
     <button type="button" class="btn btn-primary mb-2" 
     [disabled]="!disableBtn"
     (click)="searchByPin()">Search</button>

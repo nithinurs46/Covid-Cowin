@@ -17,7 +17,8 @@ export class SearchByDistrictComponent implements OnInit {
   loading = false;
   submitted = false;
   error:any;
-
+  minDate = new Date();
+  
   constructor(private formBuilder: FormBuilder,private vaccineSvc:VacccineApiService,
     private router: Router) {
     
@@ -28,7 +29,8 @@ export class SearchByDistrictComponent implements OnInit {
   ngOnInit(): void {
     this.districtSearchForm = this.formBuilder.group({
       state: ['', Validators.required],
-      city: ['', Validators.required]
+      city: ['', Validators.required],
+      startDate:['']
     });
 
     this.fetchStates();
@@ -51,13 +53,13 @@ export class SearchByDistrictComponent implements OnInit {
     if (this.districtSearchForm.invalid) {
       return;
     }
-    this.vaccineSvc.findByCity(this.districtSearchForm.value.city).subscribe((response:any) => {
+    this.vaccineSvc.findByCity(this.districtSearchForm.value.city, this.districtSearchForm.value.startDate).subscribe((response: any) => {
       this.vaccineSvc.setSearchResult(response);
-      this.router.navigate(['vaccineSearchResult']);
-    },fail => {
+      this.router.navigate(['vaccineSearchResult'], { queryParams: { startDate: this.districtSearchForm.value.startDate}});
+    }, fail => {
       this.error = fail.error.error;
     });
-    
+
   }
 
 }
