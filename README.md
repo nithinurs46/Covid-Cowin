@@ -1,6 +1,9 @@
+
 # Dashboard
 
 Dashboard URL - https://dashboard-cafa0.web.app/dashboard
+
+https://user-images.githubusercontent.com/70891889/118925233-fd6eed80-b95b-11eb-812e-022db78d6104.mp4
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.12.
 
