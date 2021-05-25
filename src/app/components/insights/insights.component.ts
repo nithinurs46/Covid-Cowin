@@ -13,7 +13,7 @@ export class InsightsComponent implements OnInit {
    
   }
   statsHistory:any;
-  titleDaily:string="Daily Cases (Cumulative)";
+  titleDaily:string="Cases (Cumulative)";
   labelDaily:string = "Cases"
 
   titleDeath:string = "Deaths (Cumulative)"
