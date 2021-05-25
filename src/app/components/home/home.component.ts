@@ -9,23 +9,23 @@ export class HomeComponent implements OnInit {
 
   //stateWiseData:any;
   //summaryData:any;
-  lastOriginUpdated:any;
-  statsHistory:any;
-  titleDaily:string="Daily Cases (Cumulative)";
-  labelDaily:string = "Cases"
+  lastOriginUpdated: any;
+  statsHistory: any;
+  titleDaily: string = "Daily Cases";
+  labelDaily: string = "Cases"
 
-  titleDeath:string = "Deaths (Cumulative)"
-  labelDeath:string = "Deaths"
-  
-  positiveCaseData:any = [];
-  deathData:any = [];
+  titleDeath: string = "Daily Deaths"
+  labelDeath: string = "Deaths"
+
+  positiveCaseData: any = [];
+  deathData: any = [];
   constructor(private dashboardSvc: DashboardService) {
   }
 
   ngOnInit(): void {
     this.retreiveAllStats();
     this.retreiveStatsHistory();
-    
+
   }
 
   retreiveAllStats() {
@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
     this.summaryData = response.data.summary;
     this.dashboardSvc.sendSummary(this.summaryData);
   }*/
-  private fetchLatestData(response:any){
+  private fetchLatestData(response: any) {
     this.dashboardSvc.sendLatestData(response);
   }
 
@@ -60,26 +60,34 @@ export class HomeComponent implements OnInit {
         this.prepareDailyDeathArr();
 
       });
-    }
+  }
 
-    prepareDailyCaseCountArr(){
+  prepareDailyCaseCountArr() {
     let ts2;
     let value;
     for (let i = 0; i < this.statsHistory.length; i++) {
       ts2 = new Date(this.statsHistory[i].day).getTime();
-      value =  this.statsHistory[i].summary.total;
+      if (i > 0) {
+        value = this.statsHistory[i].summary.total - this.statsHistory[i - 1].summary.total;
+      } else {
+        value = this.statsHistory[i].summary.total;
+      }
       this.positiveCaseData.push([ts2, value]);
     }
     //this.dashboardSvc.setDailyCountData(dates);
-    }
+  }
 
-    prepareDailyDeathArr(){
+  prepareDailyDeathArr() {
     let dateInMillis;
     let value;
     for (let i = 0; i < this.statsHistory.length; i++) {
       dateInMillis = new Date(this.statsHistory[i].day).getTime();
-      value =  this.statsHistory[i].summary.deaths;
+      if (i > 0) {
+        value = this.statsHistory[i].summary.deaths - this.statsHistory[i - 1].summary.deaths;;
+      } else {
+        value = this.statsHistory[i].summary.deaths;
+      }
       this.deathData.push([dateInMillis, value]);
     }
-    }
+  }
 }
